@@ -7,12 +7,16 @@ export default function CartPage() {
     const getItems = useCartStore(state => state.items);
     const removeItem = useCartStore(state => state.removeItem);
     const updateQuantity = useCartStore(state => state.updateQuantity);
+    const clearCart = useCartStore(state => state.clearCart);
 
     if(getItems.length === 0) {
         return (
             <>
-                <h1 className="outfit-200 text-6xl text-center" style={{"color": "green"}}>В корзине пусто</h1>
-                <Link to="/" className="text-gray-500 hover:text-gray-900 block mt-10">⬅️ Вернуться в каталог</Link>
+                <div>
+                    <h1 className="outfit-200 text-6xl text-center">В корзине пусто</h1>
+                </div>
+                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 text-2xl block mt-12">⬅️ В каталог</Link>
+
             </>
         )
     }
@@ -57,13 +61,18 @@ export default function CartPage() {
                 <h2 className="outfit-200 text-3xl text-gray-600">Итоговая сумма к оплате</h2>
                 <div className="grid grid-cols-[minmax(150px,500px)_minmax(200px,1fr)] border-b border-t border-gray-200 py-5">
                     <p className="outfit-200 text-xl">Всего</p>
-                    <p className="outfit-200 text-xl tebg-purple-700">
+                    <p className="outfit-200 text-xl text-purple-700">
                         ${totalSum}
                     </p>
                 </div>
             </div>
-            <div className="mt-9">
-                <Link to="/checkout" className="text-white bg-purple-700 rounded-xl py-4 px-10 hover:bg-purple-600">К оформлению</Link>
+            <div className="mt-9 flex gap-4">
+                <button onClick={() => clearCart()} className="text-purple-700 bg-white rounded-xl py-4 px-10 transition-all duration-150 hover:bg-purple-800 hover:text-white border border-purple-600 cursor-pointer">
+                    Очистить корзину
+                </button>
+                <Link to="/checkout" className="text-white bg-purple-700 rounded-xl py-4 px-10 hover:bg-purple-600">
+                    К оформлению
+                </Link>
             </div>
         </>
     )

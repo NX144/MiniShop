@@ -49,52 +49,61 @@ export default function CheckoutPage() {
             <form onSubmit={submitCheckout} method="POST" className="mt-20 flex flex-col">
                 <h2 className="outfit-200 text-3xl mb-7">Детали заказа</h2>
                 <input
-                    onChange={(e) => setName(e.target.value)}
+                    onChange={(e) => {
+                        setName(e.target.value)
+                        setIsValid(true);
+                    }}
                     placeholder="Ваше имя"
                     name="name"
                     minLength="2"
-                    required
                     value={name}
                     className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
                     type="text"/>
                 <input
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setEmail(e.target.value)
+                        setIsValid(true);
+                    }}
                     placeholder="Адрес эл.почты"
                     name="email"
                     type="email"
                     value={email}
                     minLength="6"
-                    required
                     className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
                     />
                 <input
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => {
+                        setPhone(e.target.value)
+                        setIsValid(true);
+                    }}
                     placeholder="Номер телефона"
                     name="phone"
                     minLength="10"
-                    required
                     value={phone}
                     className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
                     type="text"/>
                 <input
-                    onChange={(e) => setAddress(e.target.value)}
+                    onChange={(e) => {
+                        setAddress(e.target.value)
+                        setIsValid(true);
+                    }}
                     placeholder="Адрес, улица, дом, кв"
                     name="address"
                     value={address}
                     minLength="8"
-                    required
                     className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
                     type="text"/>
+
+                {isValid ? null : <p className="text-xl text-red-600">Не все поля заполнены!</p>}
                 <div className="flex flex-col mt-20">
                     <h2 className="outfit-200 text-3xl mb-7">Сумма корзины</h2>
                     <div className="grid grid-cols-[minmax(150px,500px)_minmax(200px,1fr)] border-b border-t border-gray-200 py-5">
                         <p className="outfit-200 text-xl">Всего</p>
-                        <p className="outfit-200 text-xl tebg-purple-700">
+                        <p className="outfit-200 text-xl text-purple-700">
                             ${totalSum}
                         </p>
                     </div>
                 </div>
-                {!isValid ? <p className="text-xl text-red-600">Поля не заполнены!</p> : null}
                 <div className="mt-9">
                     <button type="submit" className="text-white bg-purple-700 rounded-xl py-4 px-10 hover:bg-purple-600">Оформить заказ</button>
                 </div>
