@@ -1,0 +1,42 @@
+# зависимости
+node_modules/
+
+# сборка
+dist/
+build/
+.out/
+
+# env и секреты — главное
+.env
+.env.*
+!.env.example
+
+# логи / кеш
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.DS_Store
+.cache/
+.vite/
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+
+# тесты / coverage
+coverage/
+
+# backend на будущее
+backend/node_modules/
+backend/dist/
+backend/.env

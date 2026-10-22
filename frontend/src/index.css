@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+.outfit-200 {
+     font-family: "Outfit", sans-serif;
+     font-optical-sizing: auto;
+     font-weight: 200;
+     font-style: normal;
+ }
+.outfit-300 {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+.outfit-400 {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 30px;
+}
+
+.select-wrapper::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 53%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #212121;
+}
