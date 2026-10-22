@@ -2,7 +2,7 @@ import {useState, useEffect, useRef} from "react";
 import { Link, useParams } from "react-router-dom";
 import { getProductById } from "../api/getProductById.js";
 import useCartStore from "../store/cartStore";
-import loadingSpinner from "../assets/spinner.gif";
+import SwiperCart from "../components/SwiperCart.jsx";
 
 export default function ProductPage() {
 
@@ -48,7 +48,27 @@ export default function ProductPage() {
     }
 
     if(loading) {
-        return <img src={loadingSpinner} alt="loading..."/>
+        return (
+            <>
+                <div className="my-7 flex gap-1">
+                    <Link to="/" className="outfit-200" >Главная</Link>
+                    <p className="outfit-200" >→</p>
+                    <p className="outfit-200 h-5 w-30 bg-gray-300 animate-pulse"></p>
+                </div>
+                <div className="grid grid-cols-2 gap-10 bg-gray-100 w-full rounded-6xl animate-pulse">
+                    <div className="w-75 h-75 bg-gray-300 rounded-4xl animate-pulse"></div>
+                    <div>
+                        <h1 className="outfit-200 text-6xl h-30 w-5/6 bg-gray-300 animate-pulse mb-3 rounded-2xl"></h1>
+                        <p className="text-red-600 text-3xl py-4 h-7 w-20 bg-gray-300 animate-pulse mb-3"></p>
+                        <p className="text-base pb-4 h-15 w-full bg-gray-300 animate-pulse rounded-2xl"></p>
+                        <div className="grid grid-cols-2 gap-3 mt-5">
+                            <Link to="/" className="cursor-pointer w-66 h-15 px-2 py-4 rounded-3xl flex content-center justify-center bg-gray-300 animate-pulse"></Link>
+                            <button className={" cursor-pointer px-2 py-4 w-66 h-15 rounded-3xl text-white bg-gray-300 animate-pulse"}></button>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )
     }
 
     if(error) {
@@ -63,15 +83,21 @@ export default function ProductPage() {
     return (
         <>
             <div className={(added ? "top-3" : "-top-37.5") + " w-67.5 px-3 py-4 bg-green-500 rounded-xl text-lg outfit-300 text-white flex items-center justify-center fixed left-1/2 -translate-x-1/2 transition-all duration-400 ease-in-out"} >Товар добавлен в корзину</div>
+
+            <div className="my-7 flex gap-1">
+                <Link to="/" className="outfit-200" >Главная</Link>
+                <p className="outfit-200" >→</p>
+                <p className="outfit-200" >{product.title}</p>
+            </div>
             <div className="grid grid-cols-2 gap-10">
-                <img src={product.thumbnail} alt=""/>
+                <SwiperCart images={product.images} />
                 <div>
                     <h1 className="outfit-200 text-6xl">{product.title}</h1>
                     <p className="text-red-600 text-3xl py-4">${product.price}</p>
                     <p className="text-base pb-4">{product.description}</p>
                     <div className="grid grid-cols-2 gap-3">
-                        <Link to="/" className="cursor-pointer border border-y-gray-800  px-2 py-4 rounded-3xl flex content-center justify-center">Назад в каталог</Link>
-                        <button onClick={addToCart} className={(added ? "opacity-70 pointer-events-none" : "") + " cursor-pointer bg-gray-900 px-2 py-4 rounded-3xl text-white"}>Add to cart</button>
+                        <Link to="/" className="cursor-pointer border border-y-gray-800  px-2 py-4 rounded-3xl flex content-center justify-center transition ease-in-out delay-75 hover:text-white hover:bg-gray-800">Назад в каталог</Link>
+                        <button onClick={addToCart} className={(added ? "opacity-70 pointer-events-none" : "") + " cursor-pointer bg-purple-700 transition ease-in-out delay-75 hover:bg-purple-600 px-2 py-4 rounded-3xl text-white"}>Добавить в корзину</button>
                     </div>
                 </div>
             </div>

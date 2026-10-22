@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import useCartStore from "../store/cartStore.js";
+import paydone from "../assets/paydone.png";
 
 export default function CheckoutPage() {
 
@@ -40,8 +41,13 @@ export default function CheckoutPage() {
     return (
         submitted ?
             <>
-                <h1 className="outfit-200 text-6xl text-center text-green-600">Заказ оформлен!</h1>
-                <Link to="/">⬅️ На главную</Link>
+
+                <div className="flex items-center justify-center gap-20">
+                    <h1 className="outfit-200 text-6xl text-center text-green-500 max-w-75">Заказ оформлен!</h1>
+                    <img src={paydone} alt="not-found" className="w-75" />
+                </div>
+
+                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 text-2xl block mt-12 text-center">⬅️ На главную</Link>
             </>
             :
         <div>

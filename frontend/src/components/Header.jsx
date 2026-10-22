@@ -25,7 +25,7 @@ export default function Header() {
 
 
     return (
-        <header className="bg-white border-b">
+        <header className="bg-white border-b border-gray-200">
             <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-4">
                 <Link to="/" className="text-3xl outfit-200 text-gray-900">
                     MiniShop

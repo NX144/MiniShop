@@ -7,12 +7,15 @@ import CartPage from "./pages/CartPage.jsx";
 import CheckoutPage from "./pages/CheckoutPage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import Footer from "./components/Footer.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
+        <ScrollToTop/>
         <div className="min-h-screen bg-gray-50 text-gray-900">
           <Header />
           <main className="mx-auto max-w-6xl px-4 py-8">
@@ -24,6 +27,7 @@ function App() {
               <Route path="*" element={<NotFoundPage/>} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </BrowserRouter>
     </>

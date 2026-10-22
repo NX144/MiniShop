@@ -1,6 +1,7 @@
 import useCartStore from "../store/cartStore.js";
 import cartRemoveBtn from "../assets/cartRemoveBtn.png"
 import {Link} from "react-router-dom";
+import emptycart from "../assets/emptycart.png";
 
 export default function CartPage() {
 
@@ -12,10 +13,11 @@ export default function CartPage() {
     if(getItems.length === 0) {
         return (
             <>
-                <div>
-                    <h1 className="outfit-200 text-6xl text-center">В корзине пусто</h1>
+                <div className="flex items-center justify-center gap-10">
+                    <h1 className="outfit-200 text-6xl text-center mb-8 max-w-75">В корзине ничего нет 🤷‍♂️️</h1>
+                    <img src={emptycart} alt="not-found" className="w-100" />
                 </div>
-                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 text-2xl block mt-12">⬅️ В каталог</Link>
+                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 text-2xl block mt-12 text-center">⬅️ За покупками</Link>
 
             </>
         )

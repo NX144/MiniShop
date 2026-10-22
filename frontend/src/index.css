@@ -40,3 +40,81 @@
     font-size: 14px;
     color: #212121;
 }
+
+.yt-anim svg path {
+    transition: .1s all ease-in-out;
+}
+
+.yt-anim:hover svg path {
+    fill: #d10606;
+}
+
+.tg-anim:hover .tg-anim-path1 {
+    fill: #40B3E0;
+    transition: .1s all ease-in-out;
+}
+
+.tg-anim:hover .tg-anim-path2 {
+    fill: #D2E5F1;
+    transition: .1s all ease-in-out;
+}
+
+.tg-anim:hover .tg-anim-path3 {
+    fill: #B5CFE4;
+    transition: .1s all ease-in-out;
+}
+
+
+
+
+
+
+
+
+.my-swiper-wrapper {
+    display: grid;
+    grid-template-columns: 120px 410px;
+    gap: 10px;
+    position: relative;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.mySwiper2 {
+    height: 350px;
+    width: 100%;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.mySwiper {
+    height: 350px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 0;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.mySwiper .swiper-slide {
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+    opacity: 1;
+    border-color: blueviolet;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

@@ -4,6 +4,7 @@ import {getProducts} from "../api/getProducts.js";
 import {searchProducts} from "../api/searchProducts.js";
 import ProductCard from "../components/ProductCard.jsx";
 import Pagination from "../components/Pagination.jsx";
+import {LIMIT} from "../config.js";
 
 export default function CatalogPage() {
 
@@ -17,9 +18,8 @@ export default function CatalogPage() {
     const selectValue = sortBy && order ? `${sortBy}-${order}` : "";
 
     const page = Number(urlParams.get("page")) || 1;
-    const limit= 16;
-    const skip = ((page - 1) * limit );
-    let totalPages = Math.ceil(total / limit);
+    const skip = ((page - 1) * LIMIT );
+    let totalPages = Math.ceil(total / LIMIT);
 
 
 
@@ -28,12 +28,12 @@ export default function CatalogPage() {
             try {
                 setLoading(true);
                 if(urlParams.get("q")) {
-                    const data = await searchProducts(urlParams.get("q"), limit, skip, urlParams.get("sortBy") || null, urlParams.get("order") || null);
+                    const data = await searchProducts(urlParams.get("q"), LIMIT, skip, urlParams.get("sortBy") || null, urlParams.get("order") || null);
                     setProducts(data.products);
                     setTotal(data.total);
                     setError(null)
                 } else {
-                    const data = await getProducts(limit, skip, urlParams.get("sortBy") || null, urlParams.get("order") || null);
+                    const data = await getProducts(LIMIT, skip, urlParams.get("sortBy") || null, urlParams.get("order") || null);
                     setProducts(data.products);
                     setTotal(data.total);
                     setError(null)
@@ -89,7 +89,7 @@ export default function CatalogPage() {
 
     if(loading) {
         let limitSkeleton = [];
-        for(let i = 1; i <= limit; i++) {
+        for(let i = 1; i <= LIMIT; i++) {
             limitSkeleton.push(i);
         }
         return (
