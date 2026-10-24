@@ -4,8 +4,8 @@ import {Link} from "react-router-dom";
 
 export default function Footer() {
     return (
-        <footer className="bg-white border-t border-gray-200 flex flex-col mt-20">
-            <div className="mx-auto max-w-6xl flex justify-between gap-45 px-4 py-10">
+        <footer className="bg-white border-t border-gray-200 flex flex-col md:mt-20 mt-10">
+            <div className="mx-auto max-w-6xl flex justify-between sm:flex-row flex-col lg:gap-45 md:gap-30 sm:gap-18 sm:gap-y-0 gap-y-10 px-4 py-10">
                 <div className="flex flex-col">
                     <Link to="/" className="text-3xl outfit-200 text-gray-900">
                         MiniShop
@@ -35,9 +35,9 @@ export default function Footer() {
                     <Link to="/" className="outfit-200">Каталог</Link>
                     <Link to="/" className="outfit-200">Контакты</Link>
                 </div>
-                <div className="flex flex-col items-end gap-3 max-w-75">
+                <div className="flex flex-col sm:items-end items-start gap-3 max-w-75">
                     <h3 className="outfit-300 text-2xl">Свяжитесь с нами</h3>
-                    <p className="outfit-200 flex flex-col items-end">
+                    <p className="outfit-200 flex flex-col sm:items-end items-start">
                         У вас возникли вопросы или пожелания?
                         <a href="mailto:nikcevichoff@gmail.com" className="underline">nikcevichoff@gmail.com</a>
                     </p>

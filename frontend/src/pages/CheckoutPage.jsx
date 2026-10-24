@@ -42,18 +42,18 @@ export default function CheckoutPage() {
         submitted ?
             <>
 
-                <div className="flex items-center justify-center gap-20">
-                    <h1 className="outfit-200 text-6xl text-center text-green-500 max-w-75">Заказ оформлен!</h1>
-                    <img src={paydone} alt="not-found" className="w-75" />
+                <div className="flex sm:flex-row flex-col items-center justify-center md:gap-20 gap-5">
+                    <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl text-center text-green-500 lg:max-w-75 md:max-w-50 sm:max-w-45">Заказ оформлен!</h1>
+                    <img src={paydone} alt="not-found" className="lg:w-75 md:w-50 sm:w-45 w-40" />
                 </div>
 
-                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 text-2xl block mt-12 text-center">⬅️ На главную</Link>
+                <Link to="/" className="text-gray-500 hover:text-gray-900 outfit-300 md:text-2xl text-lg block md:mt-12 mt-5 text-center">⬅️ На главную</Link>
             </>
             :
         <div>
-            <h1 className="outfit-200 text-6xl text-center">Оформление заказа</h1>
+            <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl text-center">Оформление заказа</h1>
             <form onSubmit={submitCheckout} method="POST" className="mt-20 flex flex-col">
-                <h2 className="outfit-200 text-3xl mb-7">Детали заказа</h2>
+                <h2 className="outfit-200 lg:text-3xl sm:text-2xl text-xl mb-7">Детали заказа</h2>
                 <input
                     onChange={(e) => {
                         setName(e.target.value)
@@ -63,7 +63,7 @@ export default function CheckoutPage() {
                     name="name"
                     minLength="2"
                     value={name}
-                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
+                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 sm:text-lg text-sm mb-5"
                     type="text"/>
                 <input
                     onChange={(e) => {
@@ -75,7 +75,7 @@ export default function CheckoutPage() {
                     type="email"
                     value={email}
                     minLength="6"
-                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
+                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 sm:text-lg text-sm mb-5"
                     />
                 <input
                     onChange={(e) => {
@@ -86,7 +86,7 @@ export default function CheckoutPage() {
                     name="phone"
                     minLength="10"
                     value={phone}
-                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
+                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 sm:text-lg text-sm mb-5"
                     type="text"/>
                 <input
                     onChange={(e) => {
@@ -97,14 +97,14 @@ export default function CheckoutPage() {
                     name="address"
                     value={address}
                     minLength="8"
-                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 text-lg mb-5"
+                    className="max-w-175 px-6 py-4 border border-gray-300 rounded-lg outfit-200 sm:text-lg text-sm mb-5"
                     type="text"/>
 
-                {isValid ? null : <p className="text-xl text-red-600">Не все поля заполнены!</p>}
+                {isValid ? null : <p className="sm:text-xl text-sm text-red-600">Не все поля заполнены!</p>}
                 <div className="flex flex-col mt-20">
-                    <h2 className="outfit-200 text-3xl mb-7">Сумма корзины</h2>
+                    <h2 className="outfit-200 lg:text-3xl sm:text-2xl text-xl mb-7">Сумма корзины</h2>
                     <div className="grid grid-cols-[minmax(150px,500px)_minmax(200px,1fr)] border-b border-t border-gray-200 py-5">
-                        <p className="outfit-200 text-xl">Всего</p>
+                        <p className="outfit-200 md:text-xl sm:text-lg text-base">Всего</p>
                         <p className="outfit-200 text-xl text-purple-700">
                             ${totalSum}
                         </p>

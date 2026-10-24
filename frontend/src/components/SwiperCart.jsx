@@ -1,6 +1,7 @@
 import { useState } from 'react';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import nophoto from '../assets/no-photo.webp';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -15,6 +16,12 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 export default function SwiperCart({images}) {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    
+    if(!images?.length) {
+        return (
+            <img src={nophoto} className="max-w-135" alt="no-image"/>
+        )
+    }
 
     return (
         <div className="my-swiper-wrapper">
@@ -27,6 +34,24 @@ export default function SwiperCart({images}) {
                 watchSlidesProgress={true}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper"
+                breakpoints={{
+                    // when window width is >= 640px
+                    320: {
+                        slidesPerView: 2,
+                        direction: "horizontal"
+                    },
+                    425: {
+                        slidesPerView: 3,
+                        direction: "horizontal"
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }}
             >
                 {images.map((image, i) => (
                     <SwiperSlide key={i} >
@@ -45,6 +70,17 @@ export default function SwiperCart({images}) {
                 thumbs={{ swiper: thumbsSwiper }}
                 modules={[FreeMode, Navigation, Thumbs]}
                 className="mySwiper2"
+
+                breakpoints={{
+                    // when window width is >= 640px
+                    320: {
+                        direction: "horizontal"
+                    },
+                    // when window width is >= 768px
+                    768: {
+                        direction: "vertical"
+                    }
+                }}
             >
                 {images.map((image, i) => (
                     <SwiperSlide key={i} >

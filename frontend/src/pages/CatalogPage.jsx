@@ -94,9 +94,9 @@ export default function CatalogPage() {
         }
         return (
             <div>
-                <h1 className="outfit-200 text-6xl mb-5">Каталог</h1>
-                <p className="text-xl flex items-center gap-4">Нашлось: <span className="h-5 w-30 bg-gray-300 animate-pulse"></span></p>
-                <div className=" mt-10">
+                <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl mb-5">Каталог</h1>
+                <p className="sm:text-xl text-base flex items-center gap-4">Нашлось: <span className="h-5 w-30 bg-gray-300 animate-pulse"></span></p>
+                <div className="mt-10">
                     <p className="text-gray-600">Список товаров</p>
                 </div>
                 <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-y-10 md:gap-x-5 gap-y-6 gap-x-4">
@@ -122,8 +122,8 @@ export default function CatalogPage() {
         if(urlParams.get("q")) {
             return (
                 <>
-                    <h1 className="outfit-200 text-6xl mb-5">Каталог</h1>
-                    <p className="text-xl">Ничего не найдено по запросу «{urlParams.get("q")}»</p>
+                    <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl mb-5">Каталог</h1>
+                    <p className="sm:text-xl text-base">Ничего не найдено по запросу «{urlParams.get("q")}»</p>
                     <button
                         onClick={() => setUrlParams({page: 1})}
                         className="text-red-600 cursor-pointer mt-2"
@@ -133,8 +133,8 @@ export default function CatalogPage() {
         } else {
             return (
                 <>
-                    <h1 className="outfit-200 text-6xl mb-5">Каталог</h1>
-                    <p className="text-xl">Каталог пуст</p>
+                    <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl mb-5">Каталог</h1>
+                    <p className="sm:text-xl text-base">Каталог пуст</p>
                 </>
             )
         }
@@ -143,8 +143,8 @@ export default function CatalogPage() {
 
     return (
         <div>
-            <h1 className="outfit-200 text-6xl mb-5">Каталог</h1>
-            <p className="text-xl">Нашлось: {total} товаров</p>
+            <h1 className="outfit-200 lg:text-6xl sm:text-4xl text-3xl mb-5">Каталог</h1>
+            <p className="sm:text-xl text-base">Нашлось: {total} товаров</p>
             {/* Filters */}
             <div className="flex justify-between mt-10">
                 <p className="text-gray-600">Список товаров</p>
